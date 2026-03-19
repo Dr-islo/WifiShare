@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4F8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ── Header ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_blue"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📡  WiFi Share"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WiFi tethering via WiFi Direct + Proxy"
+                android:textSize="13sp"
+                android:textColor="#BBDEFB"
+                android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/tvWifiName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detecting WiFi…"
+                android:textSize="13sp"
+                android:textColor="#E3F2FD"
+                android:layout_marginTop="6dp"/>
+        </LinearLayout>
+
+        <!-- ── Settings card ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_white"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOTSPOT NAME"
+                android:textSize="10sp"
+                android:letterSpacing="0.12"
+                android:textColor="#9E9E9E"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/etGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/input_bg"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:textColor="#212121"
+                android:hint="e.g. MyWifi_Share"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASSWORD  (blank = open, or min 8 chars)"
+                android:textSize="10sp"
+                android:letterSpacing="0.12"
+                android:textColor="#9E9E9E"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/etGroupPass"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/input_bg"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:textColor="#212121"
+                android:hint="Password (optional)"/>
+        </LinearLayout>
+
+        <!-- ── Status card ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_white"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STATUS"
+                android:textSize="10sp"
+                android:letterSpacing="0.12"
+                android:textColor="#9E9E9E"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔴  Sharing is STOPPED"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#F44336"/>
+        </LinearLayout>
+
+        <!-- ── Proxy info card (hidden until started) ── -->
+        <LinearLayout
+            android:id="@+id/cardProxy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_green"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROXY ADDRESS  (copy &amp; share)"
+                android:textSize="10sp"
+                android:letterSpacing="0.12"
+                android:textColor="#A5D6A7"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/tvProxyInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="192.168.49.1:8282"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="monospace"/>
+
+                <Button
+                    android:id="@+id/btnCopyProxy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Copy"
+                    android:textSize="12sp"
+                    android:textColor="#2E7D32"
+                    android:background="@drawable/btn_copy"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvClientsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="13sp"
+                android:textColor="#C8E6C9"
+                android:lineSpacingExtra="3dp"/>
+        </LinearLayout>
+
+        <!-- ── Big toggle button ── -->
+        <Button
+            android:id="@+id/btnToggle"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="▶  Start Sharing"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_start"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ℹ️  WiFi stays on. Other devices connect to the hotspot, then set proxy Host &amp; Port in their WiFi advanced settings."
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

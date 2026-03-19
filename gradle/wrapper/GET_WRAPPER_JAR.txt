@@ -1,0 +1,8 @@
+The gradle-wrapper.jar is NOT included here because it's a binary file.
+GitHub Actions will download it automatically.
+
+If building locally, run this once to get it:
+  gradle wrapper --gradle-version 8.2
+Or download from:
+  https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar
+  and place it in this folder as: gradle-wrapper.jar

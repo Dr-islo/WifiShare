@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Force all Kotlin stdlib variants to the same version
+configurations.all {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    }
+}
+
+android {
+    compileSdkVersion 35        // Android 15
+    namespace "com.wifishare"
+    defaultConfig {
+        applicationId "com.wifishare"
+        minSdkVersion 23        // Android 6
+        targetSdkVersion 35     // Android 15
+        versionCode 3
+        versionName "3.0"
+    }
+    buildTypes {
+        release { minifyEnabled false }
+        debug   { minifyEnabled false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core:1.12.0'
+}
